@@ -1,10 +1,10 @@
 
-// import OpenAI from "openai";
-// import dotenv  from "dotenv";
 const OpenAI = require("openai")
 const dotenv  = require("dotenv")
 const {Client, GatewayIntentBits, EmbedBuilder, PermissionsBitFiled, Permissions} = require("discord.js");
+dotenv.config()
 const client = new Client({intents: [GatewayIntentBits.Guilds, GatewayIntentBits.GuildMessages, GatewayIntentBits.MessageContent]})
+const token = process.env.DISCORD_TOKEN
 
 
 
@@ -16,9 +16,9 @@ client.on("ready", (x) => {
 })
 
 // client.login(process.env.DISCORD_TOKEN)  don't know why this isn't working
-client.login('MTE4MDA3MjQ3NjM1NzcwOTg5NA.GyDmtM.I_yj5tFlSGlCUlLQN6jbE3YNeNN4-fEKC8btmU')
+client.login(token)
 
-dotenv.config()
+
 
 
 const openai = new OpenAI({ apiKey: process.env.OPEN_API_KEY });
